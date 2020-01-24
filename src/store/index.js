@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     mySocket: null,
-    username: ''
+    username: '',
+    room: {}
   },
   mutations: {
     SET_MYSOCKET (state, payload) {
