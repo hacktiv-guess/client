@@ -26,6 +26,8 @@ export default {
       this.$store.dispatch('mySocket')
       this.$store.commit('SET_USERNAME', this.username)
       this.$store.mySocket
+      this.username = ''
+      this.$router.push('/rooms')
     }
   },
 }
