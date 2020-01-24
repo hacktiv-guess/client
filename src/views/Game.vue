@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1>{{soal[indexSetSoal]}}</h1>
-    <h2>{{test}}</h2>
+    <div class="d-flex ">
+        <div class="col-md-1" v-for="item in soalSekarang">
+            <img :src="item" :key="item" class="image-fluid">
+        </div>
+    </div>
     <Keypress :key-code="37" event="keyup" @pressed="pencetKiri" />
     <Keypress :key-code="38" event="keyup" @pressed="pencetAtas" />
     <Keypress :key-code="39" event="keyup" @pressed="pencetKanan" />
@@ -14,33 +17,7 @@
 export default {
   data() {
     return {
-      soal: [
-        [1, 1, 3, 2, 4, 3, 2, 3],
-        [3, 3, 1, 4, 3, 1, 1, 4],
-        [2, 1, 4, 1, 4, 2, 3, 4],
-        [1, 2, 3, 4, 2, 2, 4, 3],
-        [3, 4, 1, 1, 3, 3, 3, 4],
-        [1, 2, 3, 2, 1, 1, 2, 4],
-        [2, 1, 3, 1, 4, 1, 2, 1],
-        [2, 1, 3, 2, 4, 1, 2, 3],
-        [2, 3, 4, 2, 2, 4, 4, 2],
-        [1, 1, 3, 2, 1, 4, 3, 1],
-        [4, 4, 4, 3, 3, 4, 2, 3],
-        [1, 2, 2, 4, 3, 3, 4, 1],
-        [4, 4, 1, 1, 4, 4, 3, 4],
-        [2, 1, 2, 3, 2, 2, 4, 2],
-        [3, 2, 4, 1, 2, 1, 1, 1],
-        [1, 1, 2, 1, 3, 1, 2, 1],
-        [1, 4, 4, 4, 1, 3, 1, 2],
-        [3, 3, 4, 2, 1, 4, 1, 1],
-        [4, 1, 1, 3, 2, 1, 2, 1],
-        [4, 3, 1, 2, 1, 4, 2, 3],
-        [1, 4, 3, 3, 2, 2, 2, 4],
-        [2, 3, 3, 4, 4, 4, 1, 4],
-        [1, 2, 2, 3, 1, 1, 4, 1],
-        [4, 3, 3, 1, 3, 2, 4, 2],
-        [3, 3, 1, 1, 1, 2, 4, 3]
-      ],
+      soal: '',
       indexSetSoal: 0,
       indexChar: 0,
       test: ""
@@ -49,6 +26,15 @@ export default {
 
   components: {
     Keypress: () => import("vue-keypress")
+  },
+  computed: {
+    soalSekarang() {
+      const gambarSoal = [];
+      this.soal[this.indexSetSoal].forEach(gambar => {
+        gambarSoal.push(`https://prograami.com/gambardance/${gambar}.png`);
+      });
+      return gambarSoal;
+    }
   },
   methods: {
     trackKeyboard: function(e) {
@@ -60,7 +46,7 @@ export default {
         this.indexChar == "8"
       ) {
         this.indexChar = 0;
-        this.test = ''
+        this.test = "";
       } else {
         this.indexChar++;
         this.test = this.test + "benar";
@@ -72,7 +58,7 @@ export default {
         this.indexChar == "8"
       ) {
         this.indexChar = 0;
-        this.test = ''
+        this.test = "";
       } else {
         this.indexChar++;
         this.test = this.test + "benar";
@@ -84,7 +70,7 @@ export default {
         this.indexChar == "8"
       ) {
         this.indexChar = 0;
-        this.test = ''
+        this.test = "";
       } else {
         this.indexChar++;
         this.test = this.test + "benar";
@@ -96,28 +82,28 @@ export default {
         this.indexChar == "8"
       ) {
         this.indexChar = 0;
-        this.test = ''
+        this.test = "";
       } else {
         this.indexChar++;
         this.test = this.test + "benar";
       }
     },
     pencetSpace() {
-        if(this.indexChar == '8'){
-            this.test= ''
-            this.indexSetSoal++
-            this.indexChar = 0
-        }
-        else{
-            this.test = ''
-            this.indexChar = 0
-        }
+      if (this.indexChar == "8") {
+        this.test = "";
+        this.indexSetSoal++;
+        this.indexChar = 0;
+      } else {
+        this.test = "";
+        this.indexChar = 0;
+      }
 
-        if(this.indexSetSoal == '25'){
-            
-        }
-      
+      if (this.indexSetSoal == "25") {
+      }
     }
+  },
+  created(){
+      this.soal = this.$store.state.room.allSet
   }
 };
 </script>
