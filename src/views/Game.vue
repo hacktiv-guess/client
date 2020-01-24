@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <h1>{{input}}</h1> -->
-    <!-- <h2>{{indexSetButtonList}}</h2> -->
+    <h1>{{soal[indexSetSoal]}}</h1>
+    <h2>{{test}}</h2>
     <Keypress :key-code="37" event="keyup" @pressed="pencetKiri" />
     <Keypress :key-code="38" event="keyup" @pressed="pencetAtas" />
     <Keypress :key-code="39" event="keyup" @pressed="pencetKanan" />
@@ -14,11 +14,39 @@
 export default {
   data() {
     return {
-      setButton: [],
-      indexSetButtonList: 0,
-      indexChar: 0
+      soal: [
+        [1, 1, 3, 2, 4, 3, 2, 3],
+        [3, 3, 1, 4, 3, 1, 1, 4],
+        [2, 1, 4, 1, 4, 2, 3, 4],
+        [1, 2, 3, 4, 2, 2, 4, 3],
+        [3, 4, 1, 1, 3, 3, 3, 4],
+        [1, 2, 3, 2, 1, 1, 2, 4],
+        [2, 1, 3, 1, 4, 1, 2, 1],
+        [2, 1, 3, 2, 4, 1, 2, 3],
+        [2, 3, 4, 2, 2, 4, 4, 2],
+        [1, 1, 3, 2, 1, 4, 3, 1],
+        [4, 4, 4, 3, 3, 4, 2, 3],
+        [1, 2, 2, 4, 3, 3, 4, 1],
+        [4, 4, 1, 1, 4, 4, 3, 4],
+        [2, 1, 2, 3, 2, 2, 4, 2],
+        [3, 2, 4, 1, 2, 1, 1, 1],
+        [1, 1, 2, 1, 3, 1, 2, 1],
+        [1, 4, 4, 4, 1, 3, 1, 2],
+        [3, 3, 4, 2, 1, 4, 1, 1],
+        [4, 1, 1, 3, 2, 1, 2, 1],
+        [4, 3, 1, 2, 1, 4, 2, 3],
+        [1, 4, 3, 3, 2, 2, 2, 4],
+        [2, 3, 3, 4, 4, 4, 1, 4],
+        [1, 2, 2, 3, 1, 1, 4, 1],
+        [4, 3, 3, 1, 3, 2, 4, 2],
+        [3, 3, 1, 1, 1, 2, 4, 3]
+      ],
+      indexSetSoal: 0,
+      indexChar: 0,
+      test: ""
     };
   },
+
   components: {
     Keypress: () => import("vue-keypress")
   },
@@ -27,38 +55,68 @@ export default {
       alert();
     },
     pencetKiri() {
-      // Do something
-      //   alert('kiri')
-      //   this.input = this.input + "1";
-      //   if (this.data[this.indexSetButtonList] != "1") {
-      //     this.indexChar = 0;
-      //   }
-      //   else{
-      //   }
+      if (
+        this.soal[this.indexSetSoal][this.indexChar] != "1" ||
+        this.indexChar == "8"
+      ) {
+        this.indexChar = 0;
+        this.test = ''
+      } else {
+        this.indexChar++;
+        this.test = this.test + "benar";
+      }
     },
     pencetAtas() {
-      // Do something
-      //   alert("atas");
-      this.input = this.input + "2";
-      this.indexSetButtonList++;
+      if (
+        this.soal[this.indexSetSoal][this.indexChar] != "2" ||
+        this.indexChar == "8"
+      ) {
+        this.indexChar = 0;
+        this.test = ''
+      } else {
+        this.indexChar++;
+        this.test = this.test + "benar";
+      }
     },
     pencetKanan() {
-      // Do something
-      //   alert("kanan");
-      this.input = this.input + "3";
-      this.indexSetButtonList++;
+      if (
+        this.soal[this.indexSetSoal][this.indexChar] != "3" ||
+        this.indexChar == "8"
+      ) {
+        this.indexChar = 0;
+        this.test = ''
+      } else {
+        this.indexChar++;
+        this.test = this.test + "benar";
+      }
     },
     pencetBawah() {
-      // Do something
-      //   alert("bawah");
-      this.input = this.input + "4";
-      this.indexSetButtonList++;
+      if (
+        this.soal[this.indexSetSoal][this.indexChar] != "4" ||
+        this.indexChar == "8"
+      ) {
+        this.indexChar = 0;
+        this.test = ''
+      } else {
+        this.indexChar++;
+        this.test = this.test + "benar";
+      }
     },
     pencetSpace() {
-      // Do something
-      //   alert("space");
-      this.input = "";
-      this.indexSetButtonList = 0;
+        if(this.indexChar == '8'){
+            this.test= ''
+            this.indexSetSoal++
+            this.indexChar = 0
+        }
+        else{
+            this.test = ''
+            this.indexChar = 0
+        }
+
+        if(this.indexSetSoal == '25'){
+            
+        }
+      
     }
   }
 };
