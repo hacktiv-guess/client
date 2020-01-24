@@ -26,9 +26,8 @@ export default {
   },
   methods: {
     createRoom(){
-      let socket = this.$store.mySocket
-      let username = this.$store.username
-      socket.emit('makeRoom', {roomName: this.roomName, username})
+      let username = this.$store.state.username
+      this.$store.state.mySocket.emit('makeRoom', {roomName: this.roomName, username})
     }
   }
 }
