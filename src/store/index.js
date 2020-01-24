@@ -8,7 +8,6 @@ export default new Vuex.Store({
     mySocket: null,
     username: '',
     roomList: []
-
   },
   mutations: {
     SET_MYSOCKET (state, payload) {
