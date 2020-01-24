@@ -16,21 +16,19 @@
 </template>
 
 <script>
-let socket = io.connect('http://localhost:3000')
-
 export default {
 
   name: 'CreateRoom',
   data () {
     return {
-      roomName: '',
-      username: 'carl'
+      roomName: ''
     }
   },
   methods: {
     createRoom(){
-      console.log('create')
-      socket.emit('makeRoom', {roomName: this.roomName, username: this.username})
+      let socket = this.$store.mySocket
+      let username = this.$store.username
+      socket.emit('makeRoom', {roomName: this.roomName, username})
     }
   }
 }
