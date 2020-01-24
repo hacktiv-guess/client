@@ -25,9 +25,7 @@ export default {
       }
    },
    methods: {
-      startGame() {
-         this.$store.state.mySocket.emit('startGame')
-      }
+      
    },
 
    created() {
