@@ -102,10 +102,10 @@ export default {
       }
     }
   },
-  created(){
-      const roomData = this.$store.state.room
+  created() {
+    const roomData = this.$store.state.room;
 
-      this.soal = roomData.allSet
+    // this.soal = roomData.allSet;
   }
 };
 </script>
