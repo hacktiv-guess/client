@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card no-body class='mb-3 border-primary''>
+    <b-card no-body class='mb-3 border-primary'>
       <b-row no-gutters class='bg-secondary'>
         <b-col md="5" class='offset-md-1'>
           <b-card-body :title='roomDetail.name' class='p-2' style='min-height: 120px; color:white'>
