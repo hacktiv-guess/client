@@ -1,13 +1,10 @@
 <template>
   <div>
-    <<<<<<< HEAD
-    <div class="d-flex">
-      <div class="col-md-1" v-for="item in soalSekarang">
-        <img :src="item" :key="item" class="image-fluid" />
-      </div>
-    </div>=======
-    <h1>{{soal[indexSetSoal]}}</h1>
-    <h2>{{test}}</h2>>>>>>>> finish create logic in game
+    <div class="d-flex ">
+        <div class="col-md-1" v-for="item in soalSekarang">
+            <img :src="item" :key="item" class="image-fluid">
+        </div>
+    </div>
     <Keypress :key-code="37" event="keyup" @pressed="pencetKiri" />
     <Keypress :key-code="38" event="keyup" @pressed="pencetAtas" />
     <Keypress :key-code="39" event="keyup" @pressed="pencetKanan" />
@@ -20,7 +17,7 @@
 export default {
   data() {
     return {
-      soal: "",
+      soal: '',
       indexSetSoal: 0,
       indexChar: 0,
       test: ""
