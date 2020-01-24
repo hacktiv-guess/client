@@ -1,7 +1,9 @@
 <template>
-  <div class="col-md-6 offset-md-3" style="overflow:scroll; max-height: 80vh">
-    <CreateRoom />
-    <RoomCard v-for='room in roomList' :key='room.id' :roomDetail='room'/>
+  <div class="view border">
+    <div class="col-md-6 offset-md-3" style="overflow:scroll; max-height: 80vh; margin-top: 5rem">
+      <CreateRoom class="pt-5" />
+      <RoomCard v-for='room in roomList' :key='room.id' :roomDetail='room'/>
+    </div>
   </div>
 </template>
 
@@ -35,12 +37,13 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap');
 @import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
-.landing {
+.view {
   width: 100vw;
   height: 100vh;
-  background-color: black;
   overflow: hidden;
+  background-color: black;
 }
+
 
 .title {
   font-family: 'VT323', monospace;

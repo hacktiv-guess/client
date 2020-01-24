@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-card no-body class='mb-4 border-primary'>
+  <div class="p-5">
+    <b-card no-body class='mb-4'>
       <b-row no-gutters class='bg-secondary'>
         <b-col md="5" class='offset-md-1'>
           <b-card-body title='Create Room' style='min-height: 120px; color:white'>
