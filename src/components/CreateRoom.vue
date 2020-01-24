@@ -26,9 +26,12 @@ export default {
   },
   methods: {
     createRoom(){
-      let socket = this.$store.mySocket
-      let username = this.$store.username
-      socket.emit('makeRoom', {roomName: this.roomName, username})
+      this.$store.state.mySocket.emit('makeRoom', {roomName: this.roomName, username: this.$store.state.username})
+      this.$store.state.mySocket.on('roomJoined', (room) => {
+        this.$store.state.room = room
+        // console.log(this.$store.state.room)
+        this.$router.push({name: 'waitingRoom'})
+      })
     }
   }
 }

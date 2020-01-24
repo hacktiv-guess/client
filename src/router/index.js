@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/LandingPage.vue'
 import GameLobby from '../views/GameLobby.vue'
+import WaitingRoom from '../views/waitingRoom.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/rooms',
     name: 'roomList',
     component: GameLobby
+  },
+  {
+    path: '/waiting-room',
+    name: 'waitingRoom',
+    component: WaitingRoom
   },
   {
     path: '/about',
