@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/LandingPage.vue'
+import GameLobby from '../views/GameLobby.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'lobby',
+    component: GameLobby
   },
   {
     path: '/about',
