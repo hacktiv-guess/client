@@ -17,7 +17,15 @@ export default {
    },
 
    methods: {
-      
+      startGame() {
+         this.$store.state.mySocket.emit('startGame')
+      }
+   },
+
+   created() {
+      this.$store.state.mySocket.on('gameStart', () => {
+         this.$router.push({name: 'play'})
+      })
    }
 }
 </script>

@@ -15,6 +15,9 @@ export default new Vuex.Store({
     },
     SET_USERNAME (state, payload) {
       state.username = payload
+    },
+    SET_ROOM(state, payload) {
+      state.room = payload
     }
   },
   actions: {

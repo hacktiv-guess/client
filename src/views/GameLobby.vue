@@ -23,7 +23,7 @@ export default {
   computed: {
   },
   created(){
-    this.$store.state.mySocket.on('sendRooms', function(rooms){
+    this.$store.state.mySocket.on('sendRooms', (rooms) => {
       this.roomList = rooms
     })
     this.$store.state.mySocket.emit('fetchRoom')

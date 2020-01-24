@@ -28,8 +28,7 @@ export default {
     createRoom(){
       this.$store.state.mySocket.emit('makeRoom', {roomName: this.roomName, username: this.$store.state.username})
       this.$store.state.mySocket.on('roomJoined', (room) => {
-        this.$store.state.room = room
-        // console.log(this.$store.state.room)
+        this.$store.commit('SET_ROOM', room)
         this.$router.push({name: 'waitingRoom'})
       })
     }
