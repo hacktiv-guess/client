@@ -1,15 +1,18 @@
 <template>
   <div>
-    <div class="d-flex ">
-        <div class="col-md-1" v-for="item in soalSekarang">
-            <img :src="item" :key="item" class="image-fluid">
-        </div>
+    <div class="d-flex">
+      <div class="col-md-1" v-for="item in soalSekarang">
+        <img :src="item" :key="item" class="image-fluid" />
+      </div>
     </div>
     <Keypress :key-code="37" event="keyup" @pressed="pencetKiri" />
     <Keypress :key-code="38" event="keyup" @pressed="pencetAtas" />
     <Keypress :key-code="39" event="keyup" @pressed="pencetKanan" />
     <Keypress :key-code="40" event="keyup" @pressed="pencetBawah" />
     <Keypress :key-code="32" event="keyup" @pressed="pencetSpace" />
+    <audio autoplay>
+      <source src="../assets/Black_Pink.mp3" type="audio/mpeg" />
+    </audio>
   </div>
 </template>
 
@@ -17,7 +20,7 @@
 export default {
   data() {
     return {
-      soal: '',
+      soal: "",
       indexSetSoal: 0,
       indexChar: 0,
       test: ""

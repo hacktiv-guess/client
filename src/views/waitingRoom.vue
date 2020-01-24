@@ -29,14 +29,10 @@ export default {
    },
 
    created() {
-<<<<<<< HEAD
       this.$store.dispatch('mySocket')
       this.$store.state.mySocket.on('gameStart', () => {
          this.$router.push({name: 'play'})
       })
-=======
-      console.log(this.$store.state.room)
->>>>>>> resolve conflict
    }
 }
 </script>
