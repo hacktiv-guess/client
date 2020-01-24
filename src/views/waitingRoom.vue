@@ -29,7 +29,9 @@ export default {
          this.$store.state.mySocket.emit('startGame')
       }
    },
+
    created() {
+      this.$store.dispatch('mySocket')
       this.$store.state.mySocket.on('gameStart', () => {
          this.$router.push({name: 'play'})
       })
